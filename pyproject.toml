@@ -38,11 +38,11 @@ extra = ["statsmodels"]
 tests = [
     "statannotations[extra]",
     "pytest>=6",
-    "pytest-cov",
+    "pytest-cov>=4.1",
     "pytest-skip-slow",
     "pytest-xdist",
     "packaging",
-    "coverage[toml]>=7.2",
+    # "coverage[toml]>=7.3",
 ]
 docs = [
     "sphinx",
@@ -60,12 +60,13 @@ Homepage = "https://github.com/trevismd/statannotations"
 path = "statannotations/_version.py"
 
 [tool.hatch.build.targets.sdist]
-include = [
+only-include = [
     "/statannotations",
+    # "usage",
+    # "tests",
+    # "docs",
 ]
-exclude = [
-    ".gitignore",
-]
+
 
 # https://docs.pytest.org/en/stable/reference/customize.html
 [tool.pytest.ini_options]
@@ -86,9 +87,17 @@ exclude_also = [
     "if __name__ == .__main__.:",
 ]
 show_missing = true
-skip_covered = true
+skip_covered = false
 
 [tool.coverage.run]
-source = ["statannotations"]
+source = ["."]
 branch = true
+parallel = true
+# Cannot use, it results in 'no-data-collected'
 # relative_files = true
+
+[tool.coverage.paths]
+source = [
+  "statannotations",
+  "**/site-packages/statannotations",
+]
