@@ -45,7 +45,7 @@ jobs:
       fail-fast: false
 
     steps:
-      - name: Setup python for tox
+      - name: Setup python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
@@ -92,7 +92,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: report
-          pattern: .coverage.*
+          pattern: report/.coverage.*
           merge-multiple: true
       - name: Combine and report coverage
         run: hatch run coverage:run
