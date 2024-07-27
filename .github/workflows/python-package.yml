@@ -29,6 +29,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+      - name: Let us have colors
+        run: echo "FORCE_COLOR=true" >> "$GITHUB_ENV"
       - name: Install Hatch
         uses: pypa/hatch@install
       - name: Setup ${{ matrix.env.name }}
@@ -49,6 +51,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+      - name: Let us have colors
+        run: echo "FORCE_COLOR=true" >> "$GITHUB_ENV"
       - name: Install Hatch
         uses: pypa/hatch@install
       - uses: actions/checkout@v4
@@ -71,7 +75,7 @@ jobs:
           path: "report/.coverage.*"
 
   coverage:
-    name: coverage combine
+    name: coverage
     runs-on: ubuntu-22.04
     needs: test
     steps:
