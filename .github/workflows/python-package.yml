@@ -61,7 +61,7 @@ jobs:
         run: |
           import codecs
           import os
-          env = "test.py{}-{}".format("${{ matrix.python-version }}", "${{ matrix.seaborn-version }}")
+          env = "tests.py{}-{}".format("${{ matrix.python-version }}", "${{ matrix.seaborn-version }}")
           print(f"Environment {env}")
           with codecs.open(os.environ["GITHUB_ENV"], mode="a", encoding="utf-8") as file_handler:
               file_handler.write("FORCE_COLOR=1\n")
