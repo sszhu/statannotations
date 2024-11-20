@@ -33,9 +33,9 @@ methods_names = {'bonferroni': 'Bonferroni',
 # Type 1 means correction of interpretation of set of pvalues
 
 methods_data = {'Bonferroni': ["bonferroni", 0],
-                'Holm-Bonferroni': ["holm", 1],
-                'Benjamini-Hochberg': ["fdr_bh", 1],
-                'Benjamini-Yekutieli': ["fdr_by", 1]}
+                'Holm-Bonferroni': ["holm", 0],
+                'Benjamini-Hochberg': ["fdr_bh", 0],
+                'Benjamini-Yekutieli': ["fdr_by", 0]}
 
 IMPLEMENTED_METHODS = [name for name in methods_names.keys()]
 
